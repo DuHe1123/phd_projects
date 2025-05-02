@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"name": "ChinaMainLandADM2_367",
+"name": "ChinaMainLandADM2_366",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
 { "type": "Feature", "properties": { "RegionCode": 340800, "COORD_X": 116.48692410103324, "COORD_Y": 30.575676815216823 }, "geometry": { "type": "Point", "coordinates": [ 116.486924101033239, 30.575676815216823 ] } },
@@ -100,7 +100,6 @@
 { "type": "Feature", "properties": { "RegionCode": 469028, "COORD_X": 109.94724949667793, "COORD_Y": 18.551208465384281 }, "geometry": { "type": "Point", "coordinates": [ 109.947249496677927, 18.551208465384281 ] } },
 { "type": "Feature", "properties": { "RegionCode": 469002, "COORD_X": 110.41761365510969, "COORD_Y": 19.211990985596227 }, "geometry": { "type": "Point", "coordinates": [ 110.41761365510969, 19.211990985596227 ] } },
 { "type": "Feature", "properties": { "RegionCode": 469030, "COORD_X": 109.85040450886473, "COORD_Y": 19.035526482896351 }, "geometry": { "type": "Point", "coordinates": [ 109.850404508864727, 19.035526482896351 ] } },
-{ "type": "Feature", "properties": { "RegionCode": 460300, "COORD_X": 113.67490890874549, "COORD_Y": 9.8263711284325748 }, "geometry": { "type": "Point", "coordinates": [ 113.674908908745493, 9.826371128432575 ] } },
 { "type": "Feature", "properties": { "RegionCode": 460200, "COORD_X": 109.41765018573454, "COORD_Y": 18.363836004921687 }, "geometry": { "type": "Point", "coordinates": [ 109.417650185734544, 18.363836004921687 ] } },
 { "type": "Feature", "properties": { "RegionCode": 469022, "COORD_X": 110.05155006041977, "COORD_Y": 19.343852577143874 }, "geometry": { "type": "Point", "coordinates": [ 110.051550060419771, 19.343852577143874 ] } },
 { "type": "Feature", "properties": { "RegionCode": 469006, "COORD_X": 110.320220204658, "COORD_Y": 18.832012965194327 }, "geometry": { "type": "Point", "coordinates": [ 110.320220204658, 18.832012965194327 ] } },
