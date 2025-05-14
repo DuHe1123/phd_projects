@@ -1,0 +1,14 @@
+		(1)	(2)	(3)	(4)
+VARIABLES	LABELS	Pooled OLS	TWFE	Pooled OLS	TWFE
+					
+lngdppc	lngdppc	0.015	-2.219***	-47.705***	-51.675***
+		(0.131)	(0.361)	(3.723)	(5.056)
+lngdppc2	lngdppc2			2.222***	2.323***
+				(0.173)	(0.236)
+					
+Observations		2,048	2,030	2,048	2,030
+Regional FE		NO	YES	NO	YES
+Year FE		NO	YES	NO	YES
+R2_a		-0.000483	0.857	0.0735	0.875
+Standard errors in parentheses					
+*** p<0.01, ** p<0.05, * p<0.1					

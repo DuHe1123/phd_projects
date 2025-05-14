@@ -1,0 +1,20 @@
+\documentclass[]{article}
+\setlength{\pdfpagewidth}{8.5in} \setlength{\pdfpageheight}{11in}
+\begin{document}
+\begin{tabular}{lcccc} \hline
+ & (1) & (2) & (3) & (4) \\
+VARIABLES & Pooled OLS & TWFE & Pooled OLS & TWFE \\ \hline
+ &  &  &  &  \\
+lngdppc & 0.469*** & -0.103 & -6.710*** & -1.451 \\
+ & (0.022) & (0.062) & (0.625) & (1.171) \\
+lngdppc2 &  &  & 0.334*** & 0.063 \\
+ &  &  & (0.029) & (0.055) \\
+ &  &  &  &  \\
+Observations & 2,048 & 2,030 & 2,048 & 2,030 \\
+Regional FE & NO & YES & NO & YES \\
+Year FE & NO & YES & NO & YES \\
+ R2\_a & 0.183 & 0.714 & 0.233 & 0.714 \\ \hline
+\multicolumn{5}{c}{ Standard errors in parentheses} \\
+\multicolumn{5}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\end{tabular}
+\end{document}
