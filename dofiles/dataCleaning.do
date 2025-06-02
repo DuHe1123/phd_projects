@@ -106,5 +106,8 @@ ds overwork2020 citycode ln_cons_per_capita employment_rate unemployment_insuran
 regress overwork2020 `r(varlist)'
 vif 
 
+* Drop multicolinearity issued variables
+drop ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k
+
 * Export to csv
 export delimited using "D:\Github Desktop\phd_projects\data\Dataset_MGWR.csv", replace
