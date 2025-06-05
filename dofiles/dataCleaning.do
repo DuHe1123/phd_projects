@@ -12,7 +12,7 @@ gen ln_cons_per_capita = ln(cons_per_capita)
 gen cons_gdp_ratio = 社会消费品零售总额万元 / 地区生产总值万元
 
 * Medical and health security
-gen hospital_beds_per1000 = 医院卫生院床位数张 / (户籍人口万人 * 10)
+gen hospital_beds_per10k = 医院卫生院床位数张 / 户籍人口万人
 
 * Economic development and motivation
 gen ln_gdp_per_capita = ln(人均地区生产总值元)
@@ -68,7 +68,7 @@ keep if year >= 2013 & year <= 2019
 keep citycode ///
     ln_cons_per_capita /// 
 	cons_gdp_ratio ///
-    hospital_beds_per1000 ///
+    hospital_beds_per10k ///
 	ln_gdp_per_capita ///
 	ln_gdp_pc_c_sq /// 
     secondary_gdp_ratio ///
@@ -98,7 +98,7 @@ merge 1:1 citycode using overwork, keep(match) nogen
 pwcorr ///    
     ln_cons_per_capita /// 
 	cons_gdp_ratio ///
-    hospital_beds_per1000 ///
+    hospital_beds_per10k ///
 	ln_gdp_per_capita ///
 	ln_gdp_pc_c_sq /// 
     secondary_gdp_ratio ///
