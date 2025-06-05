@@ -18,6 +18,12 @@ gen hospital_beds_per1000 = 医院卫生院床位数张 / (户籍人口万人 * 
 gen ln_gdp_per_capita = ln(人均地区生产总值元)
 gen ln_total_gdp = ln(地区生产总值万元)
 
+gen gdp_growth = 地区生产总值增长率
+gen pop_density = 人口密度人平方公里
+gen invest_gdp_ratio = 固定资产投资总额万元 / 地区生产总值万元
+gen ln_edu_exp_pc = ln(教育支出万元 / 户籍人口万人)
+gen univ_students_per10k = 普通高等学校在校学生数人 / 户籍人口万人
+
 gen secondary_gdp_ratio = 第二产业增加值万元 / 地区生产总值万元
 gen tertiary_gdp_ratio = 第三产业增加值万元 / 地区生产总值万元
 
@@ -48,7 +54,7 @@ sum
 * Save a temporary copy of 2020 overwork
 preserve
 keep if year == 2020
-keep citycode ratiow 
+keep citycode ratiow intensityw
 rename ratiow overwork2020
 tempfile overwork
 save overwork, replace
@@ -74,8 +80,13 @@ keep citycode ///
 	ln_employed_population ///
 	employment_rate ///
 	unemployment_insurance_coverage ///
-	medical_insurance_coverage
-	
+	medical_insurance_coverage ///
+	gdp_growth /// 
+	pop_density /// 
+	invest_gdp_ratio ///
+	ln_edu_exp_pc /// 
+	univ_students_per10k
+
 * Now collapse city-level means
 ds citycode, not
 collapse (mean) `r(varlist)', by(citycode)
@@ -99,11 +110,20 @@ pwcorr ///
 	ln_employed_population ///
 	employment_rate ///
 	unemployment_insurance_coverage ///
-	medical_insurance_coverage, sig
+	medical_insurance_coverage ///
+	gdp_growth /// 
+	pop_density /// 
+	invest_gdp_ratio ///
+	ln_edu_exp_pc /// 
+	univ_students_per10k, sig
 	
 * Do regression
-ds overwork2020 citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
+ds overwork2020 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
 regress overwork2020 `r(varlist)'
+vif 
+
+ds overwork2020 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
+regress intensityw `r(varlist)'
 vif 
 
 * Drop multicolinearity issued variables
