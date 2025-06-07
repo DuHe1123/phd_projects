@@ -10,7 +10,7 @@ rename regionid citycode
 gen cons_per_capita = 社会消费品零售总额万元 / (户籍人口万人 * 10000)
 gen ln_cons_per_capita = ln(cons_per_capita)
 gen cons_gdp_ratio = 社会消费品零售总额万元 / 地区生产总值万元
-
+gen ln_avg_wage = log(城镇非私营单位在岗职工平均工资元) 
 * Medical and health security
 gen hospital_beds_per10k = 医院卫生院床位数张 / 户籍人口万人
 
@@ -48,8 +48,9 @@ sum ln_gdp_per_capita
 gen ln_gdp_pc_c = ln_gdp_per_capita - r(mean)
 gen ln_gdp_pc_c_sq = ln_gdp_pc_c^2
 
-sum
-
+sum ln_avg_wage
+gen ln_avg_wage_c = ln_avg_wage - r(mean)
+gen ln_avg_wage_c_sq = ln_avg_wage_c^2
 
 * Save a temporary copy of 2020 overwork
 preserve
@@ -85,7 +86,9 @@ keep citycode ///
 	pop_density /// 
 	invest_gdp_ratio ///
 	ln_edu_exp_pc /// 
-	univ_students_per10k
+	univ_students_per10k ///
+	ln_avg_wage /// 
+	ln_avg_wage_c_sq
 
 * Now collapse city-level means
 ds citycode, not
@@ -115,7 +118,9 @@ pwcorr ///
 	pop_density /// 
 	invest_gdp_ratio ///
 	ln_edu_exp_pc /// 
-	univ_students_per10k, sig
+	univ_students_per10k ///
+	ln_avg_wage /// 
+	ln_avg_wage_c_sq, sig
 	
 * Do regression
 ds overwork2020 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
