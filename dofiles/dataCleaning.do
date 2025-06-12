@@ -54,15 +54,15 @@ gen ln_avg_wage_c_sq = ln_avg_wage_c^2
 
 * Save a temporary copy of 2020 overwork
 preserve
-keep if year == 2020
+keep if year == 2019
 keep citycode ratiow intensityw
-rename ratiow overwork2020
+rename ratiow overwork2019
 tempfile overwork
 save overwork, replace
 restore
 
 * Keep data from 2013 to 2019 for averaging
-keep if year >= 2013 & year <= 2019
+keep if year >= 2013 & year <= 2018
 
 * Collapse to city-level means
 * Keep only variables needed for collapse and citycode
@@ -123,11 +123,11 @@ pwcorr ///
 	ln_avg_wage_c_sq, sig
 	
 * Do regression
-ds overwork2020 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
-regress overwork2020 `r(varlist)'
+ds overwork2019 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
+regress overwork2019 `r(varlist)'
 vif 
 
-ds overwork2020 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
+ds overwork2019 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k, not
 regress intensityw `r(varlist)'
 vif 
 
