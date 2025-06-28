@@ -138,7 +138,7 @@ ds overwork2019 intensityw citycode ln_cons_per_capita employment_rate unemploym
 regress overwork2019 `r(varlist)'
 vif 
 
-ds overwork2019 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k ln_gdp_per_capita ln_gdp_pc_c_sq ln_avg_wage ln_avg_wage_c_sq, not
+ds overwork2019 intensityw citycode ln_cons_per_capita employment_rate unemployment_insurance_coverage rd_workers_per10k ln_gdp_per_capita ln_gdp_pc_c_sq ln_avg_wage ln_avg_wage_c_sq secondary_gdp_ratio tertiary_gdp_ratio, not
 regress overwork2019 `r(varlist)'
 vif 
 
